@@ -709,3 +709,6 @@ binder_after_run:
 	$(eval RUN :=)
 	@$(RUN) python -m spacy download en_core_web_sm
 	make er
+test_chart:
+	curl -H "Content-Type: application/json" -X POST -d '{"infile":{"title": {"text": "Steep Chart"}, "xAxis": {"categories": ["Jan", "Feb", "Mar"]}, "series": [{"data": [29.9, 71.5, 106.4]}]}}' https://ancient-thicket-34735.herokuapp.com -o test_output.png
+
